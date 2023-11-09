@@ -32,7 +32,7 @@ func main() {
 		case "2":
 			todoList.ViewTask()
 		case "3":
-			fmt.Println("Enter task name:")
+			fmt.Println("Enter task id:")
 			scanner.Scan()
 			taskIdStr := scanner.Text()
 
