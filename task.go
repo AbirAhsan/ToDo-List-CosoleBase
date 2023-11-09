@@ -14,6 +14,7 @@ func (t *Task) MarkAsDone() {
 	}
 
 	t.Done = true
+	fmt.Println("Task mark as Done")
 }
 
 func NewTask(taskId int, taskName string) Task {

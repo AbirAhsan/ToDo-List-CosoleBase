@@ -4,9 +4,12 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
+
+	todoList := TodoList{}
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Println("===============TODO LIST===============")
@@ -19,15 +22,28 @@ func main() {
 
 		scanner.Scan()
 		choice := scanner.Text()
-		fmt.Println("Scaned Text", choice)
 
 		switch choice {
 		case "1":
-			fmt.Println("Add Task")
+			fmt.Println("Enter task name:")
+			scanner.Scan()
+			taskName := scanner.Text()
+			todoList.AddTask(taskName)
 		case "2":
-			fmt.Println("View Task")
+			todoList.ViewTask()
 		case "3":
-			fmt.Println("Mark Task as Done")
+			fmt.Println("Enter task name:")
+			scanner.Scan()
+			taskIdStr := scanner.Text()
+
+			taskIdInt, err := strconv.Atoi(taskIdStr)
+
+			if err != nil {
+				fmt.Println("Invalid Task Id")
+				continue
+			}
+			todoList.MarkTaskAsDone(taskIdInt)
+
 		case "4":
 			fmt.Println("Exit Task")
 			return
