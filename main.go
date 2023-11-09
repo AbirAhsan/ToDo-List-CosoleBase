@@ -32,7 +32,7 @@ func main() {
 			fmt.Println("Exit Task")
 			return
 		default:
-			fmt.Println("Invalid Choice")
+			fmt.Printf("\nInvalid Choice\n")
 		}
 
 	}
